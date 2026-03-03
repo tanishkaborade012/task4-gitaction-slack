@@ -1,0 +1,25 @@
+name: Full Slack Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  lint:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint step
+        run: echo "Lint passed"
+  test:
+    runs-on: self-hosted
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test step
+        run: echo "Test Passed"
+
+
+ 
